@@ -1,22 +1,23 @@
 package com.lucas.correlatable_aop;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.junit.Assert.assertThat;
+
+import javax.annotation.Resource;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import com.lucas.correlatable_aop.CorrelatableIdAlreadyContainedException;
-import com.lucas.correlatable_aop.CorrelatableIdNotContainedException;
-
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
 
 @ContextConfiguration("classpath*:testContext.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
 public class CorrelatableAspectTest {
 
-	@Autowired 
+	@Resource(name="correlatableClass1") 
 	private CorrelatableClass1 correlatableClass1;
 		
 	@Test
